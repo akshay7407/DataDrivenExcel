@@ -23,7 +23,7 @@ public class DataDriven {
 		// fileInputStream argument
 		ArrayList<String> a = new ArrayList<String>();
 
-		FileInputStream fis = new FileInputStream("C://Users//Akshay Gaikwad//Documents//testcasedata.xlsx");
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/testcasedata.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
 		int sheets = workbook.getNumberOfSheets();

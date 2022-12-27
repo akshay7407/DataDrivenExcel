@@ -11,6 +11,6 @@ public class TestSample {
 		DataDriven d = new DataDriven();
 		
 		ArrayList<String> data =d.getdata("names");
-		System.out.println(data.get(2));
+		System.out.println(data);
 	}
 }
