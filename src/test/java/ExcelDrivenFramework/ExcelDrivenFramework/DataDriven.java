@@ -47,7 +47,7 @@ public class DataDriven {
 
 					k++;
 				}
-				System.out.println(coloumn);
+				System.out.println("it is a coloumn number =="+coloumn);
 
 				//// once coloumn is identified then scan entire testcase coloum to identify
 				//// purcjhase testcase row

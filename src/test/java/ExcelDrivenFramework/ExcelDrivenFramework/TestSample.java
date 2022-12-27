@@ -12,5 +12,8 @@ public class TestSample {
 		
 		ArrayList<String> data =d.getdata("names");
 		System.out.println(data);
+		System.out.println(data.get(1));
+		System.out.println(data.get(2));
+		System.out.println(data.get(3));
 	}
 }
