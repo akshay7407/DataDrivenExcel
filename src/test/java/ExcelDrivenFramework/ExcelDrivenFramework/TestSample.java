@@ -10,7 +10,7 @@ public class TestSample {
 		
 		DataDriven d = new DataDriven();
 		
-		ArrayList<String> data =d.getdata("names");
+		ArrayList<String> data =d.getdata("names","Sheet1");
 		System.out.println(data);
 		System.out.println(data.get(1));
 		System.out.println(data.get(2));

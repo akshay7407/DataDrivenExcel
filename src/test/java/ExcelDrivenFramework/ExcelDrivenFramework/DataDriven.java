@@ -19,7 +19,7 @@ public class DataDriven {
 	// purcjhase testcase row
 	// after you grab purchase testcase row = pull all the data of that row and feed
 	// into test
-	public static ArrayList<String> getdata(String testcaseName) throws IOException {
+	public static ArrayList<String> getdata(String testcaseName ,String sheetname) throws IOException {
 		// fileInputStream argument
 		ArrayList<String> a = new ArrayList<String>();
 
@@ -28,7 +28,7 @@ public class DataDriven {
 
 		int sheets = workbook.getNumberOfSheets();
 		for (int i = 0; i < sheets; i++) {
-			if (workbook.getSheetName(i).equalsIgnoreCase("Sheet1")) {
+			if (workbook.getSheetName(i).equalsIgnoreCase(sheetname)) {
 				XSSFSheet sheet = workbook.getSheetAt(i);
 				// Identify Testcases coloum by scanning the entire 1st row
 
@@ -63,7 +63,7 @@ public class DataDriven {
 						Iterator<Cell> cv = r.cellIterator();
 						while (cv.hasNext()) {
 							Cell c = cv.next();
-							if (c.getCellType() == CellType.STRING) {
+							if (c.getCellTypeEnum() == CellType.STRING) {
 
 								a.add(c.getStringCellValue());
 							} else {
