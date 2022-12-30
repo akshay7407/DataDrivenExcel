@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ExcelDriven {
+	public static String id ;
 	@Test
 	public static void addBook() throws IOException {
 		DataDriven d = new DataDriven();
@@ -34,14 +35,21 @@ public class ExcelDriven {
 				.when().post("/Library/Addbook.php").then().assertThat().log().all().statusCode(200).extract()
 				.response();
 		JsonPath js = ReusableMethods.rawToJson(resp);
-		String id = js.get("ID");
+		 id = js.get("ID");
 		System.out.println(id);
 
 	}
-
-	public static String GenerateStringFromResource(String path) throws IOException {
-
-		return new String(Files.readAllBytes(Paths.get(path)));
-
+	
+	@Test
+	
+	public void deleteBook() {
+		
+		RestAssured.baseURI = "http://216.10.245.166";
+		String resp = given().header("Content-Type", "application/json")
+				.body("{\r\n" + "    \"ID\" : \""+id+"\"\r\n" + "}")
+				.when().post("/Library/DeleteBook.php ").then().assertThat().statusCode(200).extract().response().asString();
+		System.out.println("Final message =="+ resp);
 	}
+
+	
 }
